@@ -7,7 +7,7 @@
       </div>
     </div>
     <button class="waves-effect waves-light btn" (click)="searchcall()">Search</button>
-    <div *ngFor="let item of artistsdata" class="col s12 m7">
+    <div *ngFor="let item of artistsdata | paginate: {itemsPerPage: 5, currentPage: p}" class="col s12 m7">
       <div class="card">
         <div class="card-image">
           <img style={width:10px,height:10px;} src={{item.image}}>
@@ -17,5 +17,6 @@
         </div>
       </div>
     </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </form>
 </div>

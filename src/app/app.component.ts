@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { Http, Headers} from '@angular/http';
-
-// import { Artist } from 'artist';
+import { Http, Headers, Response} from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
