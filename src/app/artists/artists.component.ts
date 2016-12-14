@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {ArtistsService} from '../artists.service';
 import { Observable } from "rxjs/Observable";
 
+
 @Component({
   selector: 'artists',
   templateUrl: './artists.component.html',
