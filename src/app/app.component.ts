@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Http, Headers, Response} from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { Http, Headers} from '@angular/http';
 
 @Component({
   selector: 'app-root',
@@ -17,26 +16,12 @@ export class AppComponent {
 
   searchcall(){
     var headers = new Headers();
-    var searchterm = 'http://localhost:8888/geo/gettopartist/' + 'australia/1';
+    var searchterm = 'http://localhost:8888/geo/gettopartist/' + this.searchquery + '/1';
 
     headers.append('Content-Type', 'application/X-www-form-urlencoded');
 
     this.http.get(searchterm, {headers: headers}).subscribe((res) => {
       this.artistsdata = res.json();
-      console.log(this.artistsdata);
-      // console.log(new Artist());
-
-    });
-  }
-
-  trackcall(){
-    var headers = new Headers();
-    var searchterm = 'http://localhost:8888/artist/gettoptracks' + 'australia/1';
-
-    headers.append('Content-Type', 'application/X-www-form-urlencoded');
-
-    this.http.get(searchterm, {headers: headers}).subscribe((res) => {
-      console.log(res.json());
     });
   }
 
