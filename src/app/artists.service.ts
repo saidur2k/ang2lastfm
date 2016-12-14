@@ -28,7 +28,7 @@ export class ArtistsService {
 
   getArtist(id: string) {
     var search = new URLSearchParams();
-    return this.http.get('http://localhost:8888/artist/gettoptracks/'+ id , {search})
+    return this.http.get('http://localhost:8888/artist/gettoptrack/'+ id)
       .map(res => {
         return res.json();
       })

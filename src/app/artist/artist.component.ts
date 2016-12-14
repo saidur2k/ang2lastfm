@@ -9,7 +9,8 @@ import { ArtistsService} from '../artists.service';
   styleUrls: ['./artist.component.css']
 })
 export class ArtistComponent implements OnInit {
-  artist: Object;
+  artist: Array<Object>;
+
   constructor(
     private _artistsServices: ArtistsService,
     private router: ActivatedRoute,
@@ -20,12 +21,14 @@ export class ArtistComponent implements OnInit {
 
   ngOnInit() {
     this.router.params.subscribe((params) => {
-      const id = params['id'];
+      const id = params['mbid'];
       this._artistsServices.getArtist(id).subscribe(artist => {
         this.artist = artist;
         console.log(this.artist);
       });
     })
+
+
   }
 
 }
