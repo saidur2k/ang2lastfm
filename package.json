@@ -6,9 +6,11 @@
   "scripts": {
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
-    "test": "ng test",
+    "test": "ng test --watch=false",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "e2e": "protractor",
+    "build": "ng build --prod --output-path=dist/client",
+    "postinstall": "npm run build"
   },
   "private": true,
   "dependencies": {
@@ -30,9 +32,7 @@
     "tsd": "^0.6.5",
     "typings": "^0.6.5",
     "underscore": "^1.8.3",
-    "zone.js": "^0.6.26"
-  },
-  "devDependencies": {
+    "zone.js": "^0.6.26",
     "@angular/compiler-cli": "2.2.3",
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.42",
@@ -51,5 +51,8 @@
     "typescript": "~2.0.3",
     "webdriver-manager": "10.2.5",
     "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+
   }
 }

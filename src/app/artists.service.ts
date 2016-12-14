@@ -12,7 +12,7 @@ export class ArtistsService {
   }
 
   getPopular() : any {
-    var url = 'http://localhost:8888/geo/gettopartist/australia/1';
+    var url = 'http://vast-everglades-52158.herokuapp.com/geo/gettopartist/australia/1';
     var response = this.http.get(url).map(this.extractData).catch(this.handleError);
     return response;
   }
@@ -20,7 +20,7 @@ export class ArtistsService {
   searchArtists(searchStr: string) {
     var search = new URLSearchParams();
     search.set('query', searchStr);
-    return this.http.get('http://localhost:8888/geo/gettopartist/'+searchStr+'/1')
+    return this.http.get('http://vast-everglades-52158.herokuapp.com/geo/gettopartist/'+searchStr+'/1')
       .map(res => {
         return res.json();
       })
@@ -28,7 +28,7 @@ export class ArtistsService {
 
   getArtist(id: string) {
     var search = new URLSearchParams();
-    return this.http.get('http://localhost:8888/artist/gettoptrack/'+ id)
+    return this.http.get('http://vast-everglades-52158.herokuapp.com/artist/gettoptrack/'+ id)
       .map(res => {
         return res.json();
       })
