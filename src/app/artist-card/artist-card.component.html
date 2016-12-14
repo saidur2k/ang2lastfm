@@ -1,0 +1,12 @@
+<div class="thumbnail">
+  <img src="{{artist.image}}" *ngIf="artist.image">
+  <img src="assets/img/abstract-image.jpg" *ngIf="!artist.image">
+  <div class="caption">
+    <h4 class="text-ellipsis">
+      <a routerLink="/artist/{{artist.mbid}}" title="{{artist.name}}">{{artist.name}}</a>
+    </h4>
+    <p>
+      <a routerLink="/artist/{{artist.mbid}}">View Song list &raquo;</a>
+    </p>
+  </div>
+</div>

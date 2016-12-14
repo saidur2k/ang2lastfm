@@ -1,21 +1,22 @@
-<div class="row">
-  <form class="col s4">
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="country" type="text" [(ngModel)]="searchquery" [ngModelOptions]="{standalone: true}">
-        <label for="country">Search by Country</label>
-      </div>
-    </div>
-    <button class="waves-effect waves-light btn" (click)="searchcall()">Search</button>
-    <div *ngFor="let item of artistsdata" class="col s12 m7">
-      <div class="card">
-        <div class="card-image">
-          <img style={width:10px,height:10px;} src={{item.image}}>
+<div class="container-fluid app-container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".artists-cat">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
         </div>
-        <div class="right-content">
-          <span class="card-title">{{item.name}}</span>
-        </div>
-      </div>
+      </nav>
     </div>
-  </form>
+    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <hr>
+  <footer>
+    <p>&copy; 2016 Saidur Rahman.</p>
+  </footer>
 </div>
