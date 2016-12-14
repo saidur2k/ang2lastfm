@@ -24,7 +24,6 @@ export class ArtistComponent implements OnInit {
       const id = params['mbid'];
       this._artistsServices.getArtist(id).subscribe(artist => {
         this.artist = artist;
-        console.log(this.artist);
       });
     })
 

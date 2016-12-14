@@ -13,7 +13,7 @@
   </form>
 </div>
 <div *ngIf="searchRes">
-  <h3 class="orange-text">Search Results"</h3>
+  <h3 class="orange-text">Search Results<span *ngIf="searchedStr">for "{{searchedStr}}"</span></h3>
   <div class="row is-flex">
     <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let artist of searchRes; let i = index;">
       <artist-card [artist]="artist"></artist-card>
@@ -24,8 +24,30 @@
 <div *ngIf="!searchRes">
   <h3 class="orange-text">Popular in Australia</h3>
   <div class="row is-flex">
-    <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let artist of popularList; let i = index;">
-      <artist-card [artist]="artist"></artist-card>
+    <div class="row">
+      <div class="col-sm-6 col-md-4 col-lg-4 col-xs-6" *ngFor="let artist of pagedItems; let i = index;">
+        <artist-card [artist]="artist"></artist-card>
+      </div>
+    </div>
+    <div class="row">
+      <!-- pager -->
+      <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+        <li [ngClass]="{disabled:pager.currentPage === 1}">
+          <a (click)="setPage(1)">First</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === 1}">
+          <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+        </li>
+        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+          <a (click)="setPage(page)">{{page}}</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a (click)="setPage(pager.currentPage + 1)">Next</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a (click)="setPage(pager.totalPages)">Last</a>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
