@@ -1,9 +1,9 @@
 <div class="jumbotron">
-  <p>Search for an artist using the form below</p>
+  <p>Search for top artists by country using the form below</p>
   <form>
     <div class="form-group">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for artists..." [(ngModel)]="searchStr" name="searchStr" (keyup.enter)="searchArtists()">
+        <input type="text" class="form-control" placeholder="Search for top artists by country..." [(ngModel)]="searchStr" name="searchStr" (keyup.enter)="searchArtists()">
         <span class="input-group-btn">
           <button class="btn btn-primary" type="button" (click)="searchArtists()">Go!</button>
         </span>
@@ -13,7 +13,7 @@
   </form>
 </div>
 <div *ngIf="searchRes">
-  <h3 class="orange-text">Search Results<span *ngIf="searchedStr">for "{{searchedStr}}"</span></h3>
+  <h3 class="orange-text">Search Results<span *ngIf="searchedStr"> for "{{searchedStr}}"</span></h3>
   <div class="row is-flex">
     <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let artist of searchRes; let i = index;">
       <artist-card [artist]="artist"></artist-card>
@@ -31,7 +31,7 @@
     </div>
     <div class="row">
       <!-- pager -->
-      <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+      <ul *ngIf="pager.pages && pager.pages.length" class="inline pagination">
         <li [ngClass]="{disabled:pager.currentPage === 1}">
           <a (click)="setPage(1)">First</a>
         </li>
